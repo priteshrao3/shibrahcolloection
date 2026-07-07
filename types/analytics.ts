@@ -4,7 +4,8 @@ export type TrackingEventType =
   | "price_click"
   | "add_to_cart"
   | "buy_now"
-  | "product_view";
+  | "product_view"
+  | "whatsapp_enquiry";
 
 export interface TrackingEvent {
   type: TrackingEventType;

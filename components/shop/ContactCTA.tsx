@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CalendarCheck2, MessageCircle } from "lucide-react";
+import { WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 const CARDS = [
   {
@@ -7,14 +8,14 @@ const CARDS = [
     title: "Shop via WhatsApp",
     subtitle: "Get a live, personal styling session on chat",
     cta: "Chat With Us",
-    href: "https://wa.me/919876543210",
+    href: `https://wa.me/${WHATSAPP_NUMBER}`,
   },
   {
     icon: CalendarCheck2,
     title: "The Bridal Stylist",
     subtitle: "Book your personal bridal styling appointment",
     cta: "Book an Appointment",
-    href: "tel:+919876543210",
+    href: `tel:+${WHATSAPP_NUMBER}`,
   },
 ];
 

@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { StarRating } from "@/components/ui/StarRating";
-import { PriceTag } from "@/components/ui/PriceTag";
 import { ImageGallery } from "@/components/shop/ImageGallery";
 import { AddToCartActions } from "@/components/shop/AddToCartActions";
+import { WhatsAppEnquireButton } from "@/components/shop/WhatsAppEnquireButton";
 import { PincodeChecker } from "@/components/shop/PincodeChecker";
 import { ProductReviews } from "@/components/shop/ProductReviews";
 import { ProductViewTracker } from "@/components/shop/ProductViewTracker";
@@ -64,13 +64,8 @@ export default async function ProductPage({
             <StarRating rating={product.rating} reviewCount={product.reviewCount} />
           </div>
           <div className="mt-4">
-            <PriceTag
-              price={product.price}
-              mrp={product.mrp}
-              discountPercent={product.discountPercent}
-              size="lg"
-            />
-            <p className="mt-1 text-xs text-neutral-400">Inclusive of all taxes</p>
+            <WhatsAppEnquireButton product={product} size="lg" className="sm:w-auto" />
+            <p className="mt-2 text-xs text-neutral-400">Chat with us for price &amp; availability</p>
           </div>
 
           <hr className="my-6 border-neutral-200" />

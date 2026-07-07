@@ -12,15 +12,9 @@ export function HeroBanner() {
         fill
         priority
         sizes="100vw"
-        className="animate-kenburns object-cover opacity-70"
+        className="animate-kenburns object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy-950/85 via-navy-950/45 to-transparent" />
-      <div className="absolute inset-0 bg-linear-to-t from-navy-950/60 via-transparent to-transparent" />
-
-      {/* Ornamental corner frame */}
-      <div className="pointer-events-none absolute inset-5 border border-gold-400/25 sm:inset-8" />
-      <div className="pointer-events-none absolute left-5 top-5 h-10 w-10 border-l-2 border-t-2 border-gold-400/70 sm:left-8 sm:top-8" />
-      <div className="pointer-events-none absolute bottom-5 right-5 h-10 w-10 border-b-2 border-r-2 border-gold-400/70 sm:bottom-8 sm:right-8" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-950/80 via-navy-950/30 to-transparent" />
 
       <div className="relative mx-auto w-full max-w-[1800px] px-3 sm:px-4 lg:px-6">
         <span className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-gold-400/40 bg-white/5 px-4 py-1.5 font-display text-xs uppercase tracking-[0.3em] text-gold-400">

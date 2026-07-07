@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/types/product";
-import { PriceTag } from "@/components/ui/PriceTag";
 import { StarRating } from "@/components/ui/StarRating";
 import { Badge } from "@/components/ui/Badge";
 import { WishlistButton } from "@/components/shop/WishlistButton";
 import { QuickAddButton } from "@/components/shop/QuickAddButton";
+import { WhatsAppEnquireButton } from "@/components/shop/WhatsAppEnquireButton";
 import { getStockStatus } from "@/lib/format";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -27,11 +27,6 @@ export function ProductCard({ product }: { product: Product }) {
         <Badge variant="maroon" className="absolute left-2 top-2">
           {product.category}
         </Badge>
-        {product.discountPercent > 0 && (
-          <Badge variant="gold" className="absolute right-2 top-2">
-            {product.discountPercent}% OFF
-          </Badge>
-        )}
         <WishlistButton className="absolute bottom-13 right-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
         {stockStatus !== "in-stock" && (
           <span className="absolute bottom-13 left-2 rounded-full bg-white/90 px-2.5 py-0.5 text-xs font-medium text-danger-500">
@@ -52,12 +47,7 @@ export function ProductCard({ product }: { product: Product }) {
           <StarRating rating={product.rating} reviewCount={product.reviewCount} />
         </div>
         <div className="mt-2">
-          <PriceTag
-            price={product.price}
-            mrp={product.mrp}
-            discountPercent={product.discountPercent}
-            size="sm"
-          />
+          <WhatsAppEnquireButton product={product} size="sm" />
         </div>
       </div>
     </Link>

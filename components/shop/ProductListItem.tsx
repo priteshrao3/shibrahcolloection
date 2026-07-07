@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/types/product";
-import { PriceTag } from "@/components/ui/PriceTag";
 import { StarRating } from "@/components/ui/StarRating";
 import { Badge } from "@/components/ui/Badge";
+import { WhatsAppEnquireButton } from "@/components/shop/WhatsAppEnquireButton";
 
 export function ProductListItem({ product }: { product: Product }) {
   return (
@@ -20,7 +20,7 @@ export function ProductListItem({ product }: { product: Product }) {
         <p className="mt-1 line-clamp-2 text-sm text-neutral-500">{product.description}</p>
         <div className="mt-2 flex flex-wrap items-center gap-3">
           <StarRating rating={product.rating} reviewCount={product.reviewCount} />
-          <PriceTag price={product.price} mrp={product.mrp} discountPercent={product.discountPercent} size="sm" />
+          <WhatsAppEnquireButton product={product} size="sm" />
         </div>
       </div>
     </Link>

@@ -34,7 +34,7 @@ export function WhatsAppEnquireButton({
       )}
     >
       <MessageCircle size={size === "lg" ? 18 : 14} />
-      Enquire on WhatsApp
+      Price ?
     </button>
   );
 }

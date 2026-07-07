@@ -386,3 +386,15 @@ export function getRelatedProducts(product: Product, limit = 4): Product[] {
     (p) => p.category === product.category && p.id !== product.id
   ).slice(0, limit);
 }
+
+export function searchProducts(query: string): Product[] {
+  const q = query.trim().toLowerCase();
+  if (!q) return [];
+  return PRODUCTS.filter(
+    (p) =>
+      p.name.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      p.fabric.toLowerCase().includes(q) ||
+      p.description.toLowerCase().includes(q)
+  );
+}

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Heart, Menu, Search, User, X } from "lucide-react";
 import { CartBadge } from "@/components/shop/CartBadge";
 import { CATEGORIES } from "@/lib/categories";
@@ -20,6 +21,15 @@ const OFFERS = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const router = useRouter();
+
+  function handleSearch(e: FormEvent) {
+    e.preventDefault();
+    const q = query.trim();
+    if (!q) return;
+    router.push(`/search?q=${encodeURIComponent(q)}`);
+  }
 
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur">
@@ -60,14 +70,21 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-1.5 sm:gap-3">
-          <div className="hidden items-center rounded-full border border-neutral-300 px-3 py-1.5 sm:flex">
-            <Search size={16} className="text-neutral-400" />
+          <form
+            onSubmit={handleSearch}
+            className="hidden items-center rounded-full border border-neutral-300 px-3 py-1.5 sm:flex"
+          >
+            <button type="submit" aria-label="Search" className="text-neutral-400 hover:text-maroon-600">
+              <Search size={16} />
+            </button>
             <input
               type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
               placeholder="Search for products, categories..."
               className="ml-2 w-48 bg-transparent text-sm outline-none placeholder:text-neutral-400 lg:w-64"
             />
-          </div>
+          </form>
           <button
             type="button"
             aria-label="Wishlist"

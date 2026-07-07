@@ -31,8 +31,8 @@ export function SalesTrendChart() {
           width={44}
         />
         <Tooltip
-          formatter={(value: number) => [formatPrice(value), "Revenue"]}
-          labelFormatter={(label: string) => label}
+          formatter={(value) => [formatPrice(Number(value)), "Revenue"]}
+          labelFormatter={(label) => label}
           contentStyle={{ fontSize: 12, borderRadius: 8, borderColor: CHART_CHROME.gridline }}
         />
         <Area
